@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container" style="align-content: center; text-align: center;color: white; background-color: slateblue;" >
+        <form id="myForm" onsubmit="return validateForm()">
+            <label for="fname">First Name:</label> <br>
+            <input type="text" id="fname" name="fname" required> <br>
+
+            <label for="email">Email:</label> <br>
+            <input type="email" id="email" name="email" required> <br>
+
+            <label for="password">Password:</label> <br>
+            <input type="password" id="password" name="password" required> <br>
+            <br>
+            <textarea rows="10" cols="20" id="textarea" required></textarea> <br>
+            <br>
+            <label>Gender:</label> <br>
+            <input type="radio" id="male" name="gender" value="MALE" required>
+            <label for="male">Male</label> <br>
+            <input type="radio" id="female" name="gender" value="FEMALE" required>
+            <label for="female">Female</label> <br>
+
+            <label>Cars:</label> <br>
+            <input type="radio" id="bmw" name="cars" value="BMW" required>
+            <label for="bmw">BMW</label> <br>
+            <input type="radio" id="benz" name="cars" value="BENZ" required>
+            <label for="benz">BENZ</label> <br>
+
+            <label for="color">Color:</label> <br>
+            <input type="color" id="color" name="color" required> <br>
+
+            <label for="dropdown1">Select Option 1:</label> <br>
+            <select id="dropdown1" name="dropdown1" required>
+                <option value="">Select</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </select> <br>
+
+            <label for="dropdown2">Select Option 2:</label> <br>
+            <select id="dropdown2" name="dropdown2" required>
+                <option value="">Select</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+            </select> <br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="/form.js">
+     function validateForm() {
+    var isValid = true;
+
+    var name = document.getElementById("fname").value.trim();
+    console.log("Name:", name);
+    if (name === "" || name.toLowerCase() === "a") {
+        console.log("Please enter your name");
+        isValid = false;
+    } else if (!isNaN(name)) {
+        console.log("Please enter your name, not a number");
+        isValid = false;
+    }
+
+    var email = document.getElementById("email").value.trim();
+    console.log("Email:", email);
+    // Add email validation logic here if needed
+
+    var password = document.getElementById("password").value.trim();
+    console.log("Password:", password);
+    // Add password validation logic here if needed
+
+    var textarea = document.getElementById("textarea").value.trim();
+    console.log("Textarea:", textarea);
+
+    var gender = document.querySelector('input[name="gender"]:checked');
+    if (gender) {
+        gender = gender.value;
+        console.log("Gender:", gender);
+    } else {
+        console.log("Please select a gender");
+        isValid = false;
+    }
+
+    var cars = document.querySelector('input[name="cars"]:checked');
+    if (cars) {
+        cars = cars.value;
+        console.log("Cars:", cars);
+    } else {
+        console.log("Please select a car");
+        isValid = false;
+    }````````````````````
+
+    var color = document.getElementById("color").value.trim();
+    console.log("Color:", color);
+
+    var select = document.getElementById("dropdown1").value.trim();
+    console.log("Dropdown 1:", select);
+
+    var select2 = document.getElementById("dropdown2").value.trim();
+    console.log("Dropdown 2:", select2);
+
+    if (isValid) {
+        // Form submission logic can be added here
+    }
+
+    return isValid;
+}
+
+    </script>
+</body>
+</html>
